@@ -1,12 +1,14 @@
 package tech.yashtiwari.spring5webapp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
-
+/*TODO*/
 @Entity
 public class Author {
 
+    /*TODO*/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -14,8 +16,9 @@ public class Author {
     private String fName;
     private String lName;
 
+    /*TODO*/
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
     public Author() {
     }
@@ -28,10 +31,9 @@ public class Author {
         this.id = id;
     }
 
-    public Author(String fName, String lName, Set<Book> books) {
+    public Author(String fName, String lName) {
         this.fName = fName;
         this.lName = lName;
-        this.books = books;
     }
 
     public String getfName() {
